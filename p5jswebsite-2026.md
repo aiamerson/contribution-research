@@ -5,7 +5,7 @@
 - [Xavier] - Supporting artifacts, if relevant: error messages, console output, screenshots
  
 ## Documentation Pipeline Overview
-- [NIJEL C] - Astro, GitHub Actions/Workflows, any other pieces, and each one’s role
+- [NIJEL C] - The pipeline begins with the p5.js source documentation, which is processed into structured files such as data.json and MDX reference pages. Astro then uses those generated files to build the static website, while GitHub Actions automates testing, builds, and deployment to keep the process consistent.
 - [Amari] - A system diagram: Docstrings → data.json → website build → dist/ → offline artifact, spanning both repos. Mark the three investigation tracks on it and number them so they are easy to refer back to
 - [Amario] - Briefly narrate one specific documentation change end to end: a docstring edit appearing in a rebuilt reference page
 
@@ -16,7 +16,7 @@
 - [Jaden] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Name] - Code snippets with plain-English explanation, where relevant
 ### _How_ do we build the offline reference? (Team: TeamFive)
-- [NIJEL C] - Restate each team’s scope of technical investigation, referring back to the previous diagram
+- [NIJEL C] - Our investigation focused on the packaging stage of the documentation pipeline. Rather than changing how the documentation is generated, we researched how the completed reference files could be packaged into a downloadable offline artifact while remaining separate from the existing build process.
 - [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Des] - Code snippets with plain-English explanation, where relevant
