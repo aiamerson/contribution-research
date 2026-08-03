@@ -10,17 +10,17 @@
 - [Amario] - Briefly narrate one specific documentation change end to end: a docstring edit appearing in a rebuilt reference page
 
 ## Investigation Tracks (three subsections / one per team)
-### JAA
+### _Where_ in the build process do we build the offline reference? (Team: JAA)
 - [Amario] - Restate each team’s scope of technical investigation, referring back to the previous diagram
 - [Name] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [Jaden] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Name] - Code snippets with plain-English explanation, where relevant
-### TeamFive
+### _How_ do we build the offline reference? (Team: TeamFive)
 - [NIJEL C] - Restate each team’s scope of technical investigation, referring back to the previous diagram
 - [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Des] - Code snippets with plain-English explanation, where relevant
-### RawRattlers
+### _What files_ should be in the offline reference? (Team: RawRattlers)
 - [Kam] - Restate each team’s scope of technical investigation, referring back to the previous diagram
 - [Kendall] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [Mariah] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
