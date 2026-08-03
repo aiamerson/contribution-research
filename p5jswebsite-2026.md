@@ -21,7 +21,7 @@
 - [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Des] - Code snippets with plain-English explanation, where relevant
 ### _What files_ should be in the offline reference? (Team: RawRattlers)
-- [Kam] - Restate each team’s scope of technical investigation, referring back to the previous diagram
+- [Kam] - Our approach to researching solutions for issue 432 was to review the oldest working version of the zipped, offline-downloadable reference file to help decide what needs to be in the offline reference doc. We spent time picking apart and experimenting with the old reference page, figuring out what made it work, which files were vital to the page's functionality, what was expendable, and why it had to be zipped.
 - [Kendall] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [Mariah] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Kendall] - Code snippets with plain-English explanation, where relevant
