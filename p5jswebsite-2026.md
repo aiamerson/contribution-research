@@ -11,7 +11,7 @@
 
 ## Investigation Tracks (three subsections / one per team)
 ### _Where_ in the build process do we build the offline reference? (Team: JAA)
-- [Amario] - Restate each team’s scope of technical investigation, referring back to the previous diagram: JAA's scope of investigation is in the different workflows, actions, and artifacts that are used to generate different aspects of the project. We used the given workflows used to create the version release notes, along with different tutorials about YAML files, as a reference and guide for our tests.
+- [Amario] - Restate each team’s scope of technical investigation, referring back to the previous diagram: JAA's scope of investigation is in the different workflows, actions, and artifacts that are used to generate different aspects of the project. We mainly used the *New p5.js 2.x release* workflow using the *release-workflow-v2.yml* file that creates the version release notes, along with different tutorials about YAML files, as a reference and guide for our tests.
 - [Name] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [Jaden] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Name] - Code snippets with plain-English explanation, where relevant
