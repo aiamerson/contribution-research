@@ -3,7 +3,9 @@
 - [Jaden] - Why it matters to the project: who does it serve and why is it an accessibility question?
 - [Des] - Key files in the codebase, and what each does… for ex: src/scripts/builders/reference.ts, astro.config.mjs, src/globals/p5-version.ts, release-workflow-v2.yml
 - [Xavier] - Supporting artifacts, if relevant: error messages, console output, screenshots
- 
+- `npm run build:reference` — build completed but threw this error twice: `Error modifying absolute path in preprocessor: Error: ENOENT: no such file or directory, open '.../p5.sound.js/docs/preprocessor.js'`
+- `npm run build:search` — no errors, but several locale folders are missing: `localeDir src/content/events/es does not exist. Skipping...` (same pattern for people/tutorials/libraries across es, hi, ko, zh-Hans)
+
 ## Documentation Pipeline Overview
 - [NIJEL C] - Astro, GitHub Actions/Workflows, any other pieces, and each one’s role
 - [Amari] - A system diagram: Docstrings → data.json → website build → dist/ → offline artifact, spanning both repos. Mark the three investigation tracks on it and number them so they are easy to refer back to
