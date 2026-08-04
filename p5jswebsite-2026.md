@@ -18,7 +18,8 @@
 ### _How_ do we build the offline reference? (Team: TeamFive)
 - [NIJEL C] - Our investigation focused on the packaging stage of the documentation pipeline. Rather than changing how the documentation is generated, we researched how the completed reference files could be packaged into a downloadable offline artifact while remaining separate from the existing build process.
 - [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
-- [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
+- [NIJEL C] - Our investigation has been promising so far. We successfully developed and tested a working packaging prototype, with the remaining work centered on final team decisions such as directory structure, naming conventions, and integration with the other investigation tracks.
+
 - [Des] - Code snippets with plain-English explanation, where relevant
 ### _What files_ should be in the offline reference? (Team: RawRattlers)
 - [Kam] - Restate each team’s scope of technical investigation, referring back to the previous diagram
@@ -27,7 +28,7 @@
 - [Kendall] - Code snippets with plain-English explanation, where relevant
  
 ## Findings and recommendations
-- [NIJEL C] - Summary of options considered, with tradeoffs
+- [NIJEL C] - We considered integrating packaging directly into the documentation build process or keeping it as a separate step. We recommend a separate packaging stage because it is easier to maintain, test, and update without affecting the existing documentation generation pipeline, though it does require a prepared set of files before packaging can begin.
 - [Mariah] - Anything that we directly verified/tested, like experimental scripts, the size of the generated reference files at present
 - [Kam will need help with this] - What we recommend next and why
   - Good place to mention what would be a reasonable size for the .zip
