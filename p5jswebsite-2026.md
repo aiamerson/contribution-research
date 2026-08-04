@@ -20,6 +20,14 @@
 ### _How_ do we build the offline reference? (Team: TeamFive)
 - [NIJEL C] - Restate each team’s scope of technical investigation, referring back to the previous diagram
 - [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
+  
+- Researched how the offline ZIP file currently works and where its process can be improved.
+- Found that current site files break when opened directly without a server due to link and search issues.
+- Created a Python script using Beautiful Soup to extract only the main reference pages and necessary assets.
+- Researched using sanitization tools (like bleach) to ensure extracted files remain safe and secure.
+- Built a packaging pipeline that tests the files, keeps the ZIP under 15 MB, and generates the final download.
+- Proved that improving the ZIP process as a separate step after the build is the best approach for the team.
+  
 - [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Des] - Code snippets with plain-English explanation, where relevant
 ### _What files_ should be in the offline reference? (Team: RawRattlers)
