@@ -1,7 +1,7 @@
 ## The Issue
 - [Kendall] - What #432 asks for, in plain English
 - [Jaden] - Why it matters to the project: who does it serve and why is it an accessibility question?
-- [Des] - src/scripts/builders/reference.ts: This script builds the website's reference documentation. It goes through the p5.js reference data, converts each class, method, property, and constant into MDX, fixes links, organizes the pages into the correct folders, and saves them under src/content/reference/en/. It is important for the offline reference because it creates the documentation content that Astro later turns into HTML pages.
+- src/scripts/builders/reference.ts: This script builds the website's reference documentation. It goes through the p5.js reference data, converts each class, method, property, and constant into MDX, fixes links, organizes the pages into the correct folders, and saves them under src/content/reference/en/. It is important for the offline reference because it creates the documentation content that Astro later turns into HTML pages.
 
   release-workflow-v2.yml: This GitHub Actions workflow automates the p5.js release process. It   builds the library, runs tests, updates the website's generated reference files, and           prepares  the project for deployment. It is relevant to the offline reference because it       shows   where an  offline reference generation or packaging step could be added in the         future as part    of the     automated release process.
 - [Xavier] - Supporting artifacts, if relevant: error messages, console output, screenshots
@@ -21,7 +21,7 @@
 - [NIJEL C] - Restate each team’s scope of technical investigation, referring back to the previous diagram
 - [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
-- [Des] - Code snippets:
+- Code snippets:
   ```python
   html = source_file.read_text(encoding="utf-8")
   soup = BeautifulSoup(html, "html.parser")
