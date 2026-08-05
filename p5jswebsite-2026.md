@@ -12,7 +12,7 @@
 ## Investigation Tracks (three subsections / one per team)
 ### _Where_ in the build process do we build the offline reference? (Team: JAA)
 - [Amario] - Restate each team’s scope of technical investigation, referring back to the previous diagram
-- [Name] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
+- We investigated multiple options for where the offline reference could be generated during the p5.js release process. We explored three options in particular. We explored a cross-repository workflow concept using repository_dispatch, where we would include a new step in the **release-workflow-v2.yml** file that would then trigger a new workflow in the p5.js-website repo that would then generate the offline reference. We then explored only editing the **release-workflow-v2.yml** file by including a new step that would either upload the offline reference as a workflow artifact or a release asset. 
 - [Jaden] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Name] - Code snippets with plain-English explanation, where relevant
 ### _How_ do we build the offline reference? (Team: TeamFive)
