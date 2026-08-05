@@ -25,7 +25,7 @@
 - [Kendall] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
 - [Mariah] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 
-What we found so far shows that making the reference work offline is definitely possible. We were able to use the archived version offline with search and the examples we tested still working. Kam also compressed small.mp4 from 383,631 bytes to 120,792 bytes and beat.mp3 from 254,118 bytes to 95,339 bytes. Removing search barely changed the file size, so to us it makes more sense to focus on compressing bigger media files instead of taking away a feature that is useful and possibly breaking something else.
+What we found so far shows that getting the reference to work offline is definitely possible, but the wget version still has a few issues. @kameron-ctrl was able to open it and run the examples offline, but search still sends you back to the online reference. He also tested compressing small.mp4 from 383,631 bytes to 120,792 bytes and beat.mp3 from 254,118 bytes to 95,339 bytes. Since removing search barely changed the file size, we think it makes more sense to focus on the bigger media files instead of taking away a useful feature than possibly breaking something else.
 
 - [Kendall] - Code snippets with plain-English explanation, where relevant
  
