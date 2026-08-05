@@ -6,8 +6,8 @@
  
 ## Documentation Pipeline Overview
 - [NIJEL C] - Astro, GitHub Actions/Workflows, any other pieces, and each one’s role
-- [Amari] - A system diagram: Docstrings → data.json → website build → dist/ → offline artifact, spanning both repos. Mark the three investigation tracks on it and number them so they are easy to refer back to
-- [Amario] - Briefly narrate one specific documentation change end to end: a docstring edit appearing in a rebuilt reference page
+- [Amari] - A system diagram: Docstrings → data.json → website build → dist/ → offline artifact, spanning both repos. Mark the three investigation tracks on it and number them so they are easy to refer back to  
+Let's say we wanted to change the documentation of the function `box()`. The end to end process of making a change in the offline reference page goes as follows: find the .js file in the p5.js repository that contains the data you want to change, in our case, the filepath `src/webgl/3d_primitives.js`. After you make your change, if you have npm installed, run `npm run docs` to update the `data.json` file that will be read by the p5.js-website repository. Commit the changes before you move over to the website repository, and with the repositories in the same location, run `npm run custom:dev ../p5.js#main` to connect the two. To generate the local reference, use `npm run build` and open the local host link it gives you when it's finished. This should pull up an offline version of the reference page, and from there, you just navigate to `box()` to check if your change went through.
 
 ## Investigation Tracks (three subsections / one per team)
 ### _Where_ in the build process do we build the offline reference? (Team: JAA)
