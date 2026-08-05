@@ -43,4 +43,9 @@ We focused on reverse-engineering the older offline reference ZIP, determining w
 - [Kam will need help with this] - What we recommend next and why
   - Good place to mention what would be a reasonable size for the .zip
   - Also a good place to share thoughts on including all images, search functionality, language support, etc.
-- [Name] - Suggested three sub-issues for Kit to add, informed by our research
+- A few possible paths forward:
+  - modify the release workflow in p5.js to use wget on the reference section of the generated website
+  - modify the release workflow in p5.js to use beautiful soup on the reference section of the generated website
+  - modify the release workflow in p5.js to zip a folder (any folder) -> then: test automated upload of zip to an external storage website like cloudflare (is it possible?)
+  - maybe: compress entire assets folder with FFMPEG (can this be done with a script? how could filenames be preserved for assets to load without modifying the html?)
+  - maybe: implement bleach library for HTML sanitization (used to sanitize links in offline reference)
