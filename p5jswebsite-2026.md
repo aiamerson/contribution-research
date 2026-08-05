@@ -35,6 +35,9 @@
 - [Kam] - Our approach to researching solutions for issue 432 was to review the oldest working version of the zipped, offline-downloadable reference file to help decide what needs to be in the offline reference doc. We spent time picking apart and experimenting with the old reference page, figuring out what made it work, which files were vital to the page's functionality, what was expendable, and why it had to be zipped.
 We focused on reverse-engineering the older offline reference ZIP, determining which files are essential to the functionality of the website. Testing which files are essential by removing assets and analyzing how search, examples, styling and navigation behave offline. Our team experimented with wget (a command‑line tool that downloads entire websites for offline use) as an alternative to Astro, compared file structures and sizes, while investigating link behavior and MDX portability. Our ongoing work includes prototyping a minimum offline reference.
 - [Mariah] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
+
+What we found so far shows that getting the reference to work offline is definitely possible, but the wget version still has a few issues. @kameron-ctrl was able to open it and run the examples offline, but search still sends you back to the online reference. He also tested compressing small.mp4 from 383,631 bytes to 120,792 bytes and beat.mp3 from 254,118 bytes to 95,339 bytes. Since removing search barely changed the file size, we think it makes more sense to focus on the bigger media files instead of taking away a useful feature than possibly breaking something else.
+
 - [Kendall] - Code snippets with plain-English explanation, where relevant
  
 ## Findings and recommendations
