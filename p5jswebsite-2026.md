@@ -5,6 +5,7 @@
 - [Xavier] - Supporting artifacts, if relevant: error messages, console output, screenshots
 - `npm run build:reference` — build completed but threw this error twice: `Error modifying absolute path in preprocessor: Error: ENOENT: no such file or directory, open '.../p5.sound.js/docs/preprocessor.js'`
 - `npm run build:search` — no errors, but several locale folders are missing: `localeDir src/content/events/es does not exist. Skipping...` (same pattern for people/tutorials/libraries across es, hi, ko, zh-Hans)
+
 Note: Despite these warnings and preprocessor errors, the build process completed successfully. 
 
 ## Documentation Pipeline Overview
