@@ -1,7 +1,9 @@
 ## The Issue
-- [Kendall] - What #432 asks for, in plain English
+[Issue #432 ](https://github.com/processing/p5.js-website/issues/432), within the [p5.js-website](https://github.com/processing/p5.js-website) repo is asking for the implementation of a fully functional, updated downloadable reference ZIP of p5.JS that can be available for offline use. 
 - [Jaden] - Why it matters to the project: who does it serve and why is it an accessibility question?
-- [Des] - Key files in the codebase, and what each does… for ex: src/scripts/builders/reference.ts, astro.config.mjs, src/globals/p5-version.ts, release-workflow-v2.yml
+- src/scripts/builders/reference.ts: This script builds the website's reference documentation. It goes through the p5.js reference data, converts each class, method, property, and constant into MDX, fixes links, organizes the pages into the correct folders, and saves them under src/content/reference/en/. It is important for the offline reference because it creates the documentation content that Astro later turns into HTML pages.
+
+  release-workflow-v2.yml: This GitHub Actions workflow automates the p5.js release process. It   builds the library, runs tests, updates the website's generated reference files, and           prepares  the project for deployment. It is relevant to the offline reference because it       shows   where an  offline reference generation or packaging step could be added in the         future as part    of the     automated release process.
 - [Xavier] - Supporting artifacts, if relevant: error messages, console output, screenshots
 - `npm run build:reference` — build completed but threw this error twice: `Error modifying absolute path in preprocessor: Error: ENOENT: no such file or directory, open '.../p5.sound.js/docs/preprocessor.js'`
 - `npm run build:search` — no errors, but several locale folders are missing: `localeDir src/content/events/es does not exist. Skipping...` (same pattern for people/tutorials/libraries across es, hi, ko, zh-Hans)
@@ -9,39 +11,55 @@
 Note: Despite these warnings and preprocessor errors, the build process completed successfully. 
 
 ## Documentation Pipeline Overview
-- [NIJEL C] - Astro, GitHub Actions/Workflows, any other pieces, and each one’s role
+- [NIJEL C] - The pipeline begins with the p5.js source documentation, which is processed into structured files such as data.json and MDX reference pages. Astro then uses those generated files to build the static website, while GitHub Actions automates testing, builds, and deployment to keep the process consistent.
 - [Amari] - A system diagram: Docstrings → data.json → website build → dist/ → offline artifact, spanning both repos. Mark the three investigation tracks on it and number them so they are easy to refer back to
 - [Amario] - Briefly narrate one specific documentation change end to end: a docstring edit appearing in a rebuilt reference page
 
 ## Investigation Tracks (three subsections / one per team)
 ### _Where_ in the build process do we build the offline reference? (Team: JAA)
 - [Amario] - Restate each team’s scope of technical investigation, referring back to the previous diagram
-- [Name] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
+- We investigated multiple options for where the offline reference could be generated during the p5.js release process. We explored three options in particular. We explored a cross-repository workflow concept using repository_dispatch, where we would include a new step in the **release-workflow-v2.yml** file that would then trigger a new workflow in the p5.js-website repo that would then generate the offline reference. We then explored only editing the **release-workflow-v2.yml** file by including a new step that would either upload the offline reference as a workflow artifact or a release asset. 
 - [Jaden] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
 - [Name] - Code snippets with plain-English explanation, where relevant
 ### _How_ do we build the offline reference? (Team: TeamFive)
-- [NIJEL C] - Restate each team’s scope of technical investigation, referring back to the previous diagram
-- [Xavier] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
-  
+- [NIJEL C] - Our investigation focused on the packaging stage of the documentation pipeline. Rather than changing how the documentation is generated, we researched how the completed reference files could be packaged into a downloadable offline artifact while remaining separate from the existing build process.
+
 - Researched how the offline ZIP file currently works and where its process can be improved.
 - Found that current site files break when opened directly without a server due to link and search issues.
 - Created a Python script using Beautiful Soup to extract only the main reference pages and necessary assets.
 - Researched using sanitization tools (like bleach) to ensure extracted files remain safe and secure.
 - Built a packaging pipeline that tests the files, keeps the ZIP under 15 MB, and generates the final download.
 - Proved that improving the ZIP process as a separate step after the build is the best approach for the team.
-  
-- [NIJEL C] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
-- [Des] - Code snippets with plain-English explanation, where relevant
+
+- Our investigation has been promising so far. We successfully developed and tested a working packaging prototype, with the remaining work centered on final team decisions such as directory structure, naming conventions, and integration with the other investigation tracks.
+- Code snippets:  
+  Reads an HTML page generated by Astro and loads it into Beautiful Soup so the page can be searched and modified.
+  ```python
+  html = source_file.read_text(encoding="utf-8")
+  soup = BeautifulSoup(html, "html.parser")
+  ```
+  This part extracts documentation into a separate folder without changing the original build. It is then passed to the next stages for sanitization and packaging.
+  ```python
+  output_file.write_text(extracted_html, encoding="utf-8")
+  ```
 ### _What files_ should be in the offline reference? (Team: RawRattlers)
-- [Kam] - Restate each team’s scope of technical investigation, referring back to the previous diagram
-- [Kendall] - List all self-directed areas of investigation per team: this section is the point! It's the record of our extensive research and testing
+- [Kam] - Our approach to researching solutins for issue 432 was to review the oldest working version of the zipped, offline-downloadable reference file to help decide what needs to be in the offline reference doc. We spent time picking apart and experimenting with the old reference page, figuring out what made it work, which files were vital to the page's functionality, what was expendable, and why it had to be zipped.
+We focused on reverse-engineering the older offline reference ZIP, determining which files are essential to the functionality of the website. Testing which files are essential by removing assets and analyzing how search, examples, styling and navigation behave offline. Our team experimented with wget (a command‑line tool that downloads entire websites for offline use) as an alternative to Astro, compared file structures and sizes, while investigating link behavior and MDX portability. Our ongoing work includes prototyping a minimum offline reference.
 - [Mariah] - Current status of each investigation (do you think it’s a dead end? or is it a promising direction to explore future?)
+
+What we found so far shows that getting the reference to work offline is definitely possible, but the wget version still has a few issues. @kameron-ctrl was able to open it and run the examples offline, but search still sends you back to the online reference. He also tested compressing small.mp4 from 383,631 bytes to 120,792 bytes and beat.mp3 from 254,118 bytes to 95,339 bytes. Since removing search barely changed the file size, we think it makes more sense to focus on the bigger media files instead of taking away a useful feature than possibly breaking something else.
+
 - [Kendall] - Code snippets with plain-English explanation, where relevant
  
 ## Findings and recommendations
-- [NIJEL C] - Summary of options considered, with tradeoffs
+- [NIJEL C] - We considered integrating packaging directly into the documentation build process or keeping it as a separate step. We recommend a separate packaging stage because it is easier to maintain, test, and update without affecting the existing documentation generation pipeline, though it does require a prepared set of files before packaging can begin.
 - [Mariah] - Anything that we directly verified/tested, like experimental scripts, the size of the generated reference files at present
 - [Kam will need help with this] - What we recommend next and why
   - Good place to mention what would be a reasonable size for the .zip
   - Also a good place to share thoughts on including all images, search functionality, language support, etc.
-- [Name] - Suggested three sub-issues for Kit to add, informed by our research
+- A few possible paths forward:
+  - modify the release workflow in p5.js to use wget on the reference section of the generated website
+  - modify the release workflow in p5.js to use beautiful soup on the reference section of the generated website
+  - modify the release workflow in p5.js to zip a folder (any folder) -> then: test automated upload of zip to an external storage website like cloudflare (is it possible?)
+  - maybe: compress entire assets folder with FFMPEG (can this be done with a script? how could filenames be preserved for assets to load without modifying the html?)
+  - maybe: implement bleach library for HTML sanitization (used to sanitize links in offline reference)
